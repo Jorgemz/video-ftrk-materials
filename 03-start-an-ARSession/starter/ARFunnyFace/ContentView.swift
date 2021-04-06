@@ -30,6 +30,7 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
 
+import ARKit
 import SwiftUI
 import RealityKit
 
@@ -48,13 +49,16 @@ struct ARViewContainer: UIViewRepresentable {
   
   func makeUIView(context: Context) -> ARView {
     arView = ARView(frame: .zero)
-    let boxAnchor = try! Experience.loadBox()
-    arView.scene.anchors.append(boxAnchor)
+    let eyeballAnchor = try! Experience.loadEyeball()
+    arView.scene.anchors.append(eyeballAnchor)
     
     return arView
   }
   
-  func updateUIView(_ uiView: ARView, context: Context) {}
+  func updateUIView(_ uiView: ARView, context: Context) {
+    let arConfiguration = ARFaceTrackingConfiguration()
+    uiView.session.run(arConfiguration, options: [.resetTracking, .removeExistingAnchors])
+  }
   
 }
 
