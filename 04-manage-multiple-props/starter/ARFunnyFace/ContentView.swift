@@ -57,7 +57,7 @@ struct ARViewContainer: UIViewRepresentable {
   }
   
   func updateUIView(_ uiView: ARView, context: Context) {
-//    uiView.scene.anchors.removeAll()
+    uiView.scene.anchors.removeAll()
     
     let arConfiguration = ARFaceTrackingConfiguration()
     uiView.session.run(arConfiguration, options: [.resetTracking, .removeExistingAnchors])
