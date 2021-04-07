@@ -32,7 +32,34 @@
 
 import SwiftUI
 
+enum Prop: CaseIterable, Equatable {
+  case fancyhat
+  case glasses
+  case mustache
+  case eyeball
+  
+  private func nextCase(_ cases: [Self]) -> Self? {
+    self == cases.last ?
+      cases.first
+    :
+      cases
+      .drop(while: { $0 != self })
+      .dropFirst()
+      .first
+  }
+  
+  func next() -> Self {
+    nextCase(Self.allCases) ?? .eyeball
+  }
+  
+  func previous() -> Self {
+    nextCase(Self.allCases.reversed()) ?? .fancyhat
+  }
+}
+
 struct PropChooser: View {
+  
+  @Binding var currentProp: Prop
   
   func takeSnapshot() {
     arView.snapshot(saveToHDR: false) { (image) in
@@ -44,7 +71,7 @@ struct PropChooser: View {
   var body: some View {
     HStack {
       Button(action: {
-        
+        currentProp = currentProp.previous()
       }) {
         Image(systemName: "arrowtriangle.left.fill")
           .resizable()
@@ -62,7 +89,7 @@ struct PropChooser: View {
       Spacer()
       
       Button(action: {
-        
+        currentProp = currentProp.next()
       }) {
         Image(systemName: "arrowtriangle.right.fill")
           .resizable()
@@ -77,6 +104,6 @@ struct PropChooser: View {
 
 struct PropChooser_Previews: PreviewProvider {
     static var previews: some View {
-      PropChooser()
+      PropChooser(currentProp: .constant(.eyeball))
     }
 }

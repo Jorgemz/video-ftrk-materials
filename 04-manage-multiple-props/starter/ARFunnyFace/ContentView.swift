@@ -37,27 +37,43 @@ import RealityKit
 var arView: ARView!
 
 struct ContentView : View {
+  @State var currentProp: Prop = .glasses
+  
   var body: some View {
     ZStack(alignment: .bottom) {
-      ARViewContainer().edgesIgnoringSafeArea(.all)
-      PropChooser()
+      ARViewContainer(currentProp: $currentProp).edgesIgnoringSafeArea(.all)
+      PropChooser(currentProp: $currentProp)
     }
   }
 }
 
 struct ARViewContainer: UIViewRepresentable {
+  @Binding var currentProp: Prop
   
   func makeUIView(context: Context) -> ARView {
     arView = ARView(frame: .zero)
-    let eyeballAnchor = try! Experience.loadEyeball()
-    arView.scene.anchors.append(eyeballAnchor)
     
     return arView
   }
   
   func updateUIView(_ uiView: ARView, context: Context) {
+//    uiView.scene.anchors.removeAll()
+    
     let arConfiguration = ARFaceTrackingConfiguration()
     uiView.session.run(arConfiguration, options: [.resetTracking, .removeExistingAnchors])
+    
+    var anchor: RealityKit.HasAnchoring
+    switch currentProp {
+    case .fancyhat:
+      anchor = try! Experience.loadFancyHat()
+    case .glasses:
+      anchor = try! Experience.loadGlasses()
+    case .mustache:
+      anchor =  try! Experience.loadMustache()
+    case .eyeball:
+      anchor = try! Experience.loadEyeball()
+    }
+    uiView.scene.addAnchor(anchor)
   }
   
 }
