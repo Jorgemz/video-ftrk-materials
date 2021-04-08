@@ -52,7 +52,7 @@ struct ARViewContainer: UIViewRepresentable {
   
   func makeUIView(context: Context) -> ARView {
     arView = ARView(frame: .zero)
-    
+    arView.session.delegate = context.coordinator
     return arView
   }
   
@@ -74,6 +74,30 @@ struct ARViewContainer: UIViewRepresentable {
       anchor = try! Experience.loadEyeball()
     }
     uiView.scene.addAnchor(anchor)
+  }
+  
+  func makeCoordinator() -> ARDelegateHandler {
+    ARDelegateHandler(self)
+  }
+  
+  class ARDelegateHandler: NSObject, ARSessionDelegate {
+    var arViewContainer: ARViewContainer
+    init(_ control: ARViewContainer) {
+      arViewContainer = control
+      super.init()
+    }
+    
+    func eyeballLook(at point: simd_float3) {
+      guard let eyeball = arView.scene.findEntity(named: "Eyeball")
+      else { return }
+      eyeball.look(at: point, from: eyeball.position, upVector: SIMD3<Float>(0, 1, -1), relativeTo: eyeball.parent)
+    }
+    
+    func session(_ session: ARSession, didUpdate anchors: [ARAnchor]) {
+      guard let faceAnchor = anchors.first(where: { $0 is ARFaceAnchor }) as? ARFaceAnchor
+      else { return }
+      eyeballLook(at: faceAnchor.lookAtPoint)
+    }
   }
   
 }
