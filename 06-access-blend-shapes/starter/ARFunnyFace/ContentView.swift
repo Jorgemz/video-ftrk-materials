@@ -97,13 +97,23 @@ struct ARViewContainer: UIViewRepresentable {
       
       eyeball.look(at: point, from: eyeball.position, upVector: SIMD3<Float>(0, 1, -1), relativeTo: eyeball.parent)
     }
+    func deg2Rad(_ value: Float) -> Float {
+      value * .pi / 180
+    }
+    
+    func animateRobot(faceAnchor: ARFaceAnchor) {
+      guard let robot = arView.scene.anchors.first(where: { $0 is Experience.Robot }) as? Experience.Robot else { return }
+      
+      let blendShapes = faceAnchor.blendShapes
+      guard let jawOpen = blendShapes[.jawOpen]?.floatValue else { return }
+      
+      robot.jaw?.orientation = simd_quatf(angle: deg2Rad(-100 + (60 * jawOpen)), axis: [1,0,0])
+    }
     
     func session(_ session: ARSession, didUpdate anchors: [ARAnchor]) {
       guard let faceAnchor = anchors.first(where: { $0 is ARFaceAnchor }) as? ARFaceAnchor else { return }
       eyeballLook(at: faceAnchor.lookAtPoint)
-      
-      let blendShapes = faceAnchor.blendShapes
-      let jawOpen = blendShapes[.jawOpen]?.floatValue
+      animateRobot(faceAnchor: faceAnchor)
     }
   }
 }
