@@ -1001,21 +1001,22 @@
                                           "moveEase" : "easeInOut",
                                           "respectPhysics" : false,
                                           "target" : [
-
+                                            "0E158689-5A81-4447-BDDF-6EA4E817D704",
+                                            "91C87E43-F33A-4F2D-BF96-989F148E82B6"
                                           ]
                                         },
                                         "name" : {
                                           "type" : "hide"
                                         }
                                       },
-                                      "identifier" : "212ADF4F-A1C2-40A5-B0FE-3E4C2D25019A",
+                                      "identifier" : "53F1418B-4F40-412D-9C7F-C88B43F86A5F",
                                       "isEnabled" : true
                                     }
                                   ],
                                   "__version" : 1
                                 }
                               ],
-                              "identifier" : "014CA01D-247D-40C7-A191-351D23ABFC4A",
+                              "identifier" : "794ABADD-F8D3-41C8-994D-36A138D974A5",
                               "isEnabled" : true
                             }
                           ],
@@ -1023,16 +1024,16 @@
                         }
                       ],
                       "color" : [
-                        0.364705890417099,
-                        0.74117648601531982,
-                        0.69019609689712524,
+                        0.49019607901573181,
+                        0.7450980544090271,
+                        0.94901961088180542,
                         1
                       ],
-                      "identifier" : "3BC98A72-1701-4C64-98AF-AB4B673CA5AD",
+                      "identifier" : "FD51C631-8BF9-40D5-B317-2D91FBB41B3C",
                       "isEnabled" : true,
                       "isLooping" : false,
                       "isModal" : false,
-                      "name" : "Start",
+                      "name" : "Behavior",
                       "triggers" : [
                         {
                           "__content" : [
@@ -1043,7 +1044,7 @@
                                 },
                                 "name" : "start"
                               },
-                              "identifier" : "7147346D-F18C-46E6-BBD8-9D6120535413",
+                              "identifier" : "E46B80F1-8864-47EE-A38B-76B3A6E33181",
                               "isEnabled" : true
                             }
                           ],
@@ -1079,20 +1080,45 @@
                                           "animationStyle" : "basic",
                                           "buildInAnimationType" : "none",
                                           "distance" : 1,
-                                          "duration" : 3,
+                                          "duration" : 0.5,
                                           "fadeIn" : true,
                                           "linearCoefficient" : 1,
-                                          "moveEase" : "easeOut",
+                                          "moveEase" : "easeInOut",
                                           "respectPhysics" : false,
                                           "target" : [
-
+                                            "0E158689-5A81-4447-BDDF-6EA4E817D704",
+                                            "91C87E43-F33A-4F2D-BF96-989F148E82B6"
                                           ]
                                         },
                                         "name" : {
                                           "type" : "show"
                                         }
                                       },
-                                      "identifier" : "7A3468D7-7869-48B0-A3A7-D1AF9D62C104",
+                                      "identifier" : "FC926B01-C680-42A8-A479-A0DEFB1EFF77",
+                                      "isEnabled" : true
+                                    }
+                                  ],
+                                  "__version" : 1
+                                },
+                                {
+                                  "__content" : [
+                                    {
+                                      "configurationBox" : {
+                                        "configuration" : {
+                                          "animationStyle" : "playful",
+                                          "duration" : 1,
+                                          "emphasisAnimationType" : "blink",
+                                          "iterations" : 1,
+                                          "target" : [
+                                            "0E158689-5A81-4447-BDDF-6EA4E817D704",
+                                            "91C87E43-F33A-4F2D-BF96-989F148E82B6"
+                                          ]
+                                        },
+                                        "name" : {
+                                          "type" : "emphasis"
+                                        }
+                                      },
+                                      "identifier" : "FF8194BB-54F1-4588-A4C0-C65F7A16076B",
                                       "isEnabled" : true
                                     }
                                   ],
@@ -1104,26 +1130,27 @@
                                       "configurationBox" : {
                                         "configuration" : {
                                           "audioType" : "play",
-                                          "filePath" : "audio:com.apple.rc.audio.dj-tricks.dj-scratching-and-effect-23\/DJ%20Scratching%20and%20Effect%2023.caf",
+                                          "filePath" : "audio:com.apple.rc.audio.dj-tricks.dj-scratching-and-effect-18\/Efecto%20y%20mezcla%20DJ%2018.caf",
                                           "loops" : false,
-                                          "multiplePerformType" : "allow request",
                                           "target" : [
-
+                                            "0E158689-5A81-4447-BDDF-6EA4E817D704",
+                                            "91C87E43-F33A-4F2D-BF96-989F148E82B6"
                                           ],
                                           "volume" : 0.5
                                         },
                                         "name" : {
-                                          "type" : "audio"
+                                          "arguments" : "stereoBypass",
+                                          "type" : "soundtrack"
                                         }
                                       },
-                                      "identifier" : "5E67849B-35F0-406A-A380-93A932BB5F49",
+                                      "identifier" : "EEAC6A06-CBA6-4162-9FC9-129DD21C4B27",
                                       "isEnabled" : true
                                     }
                                   ],
                                   "__version" : 1
                                 }
                               ],
-                              "identifier" : "F033D455-0981-4BE8-A423-24425AAC7DF3",
+                              "identifier" : "6A09E28C-15FA-411D-A74D-9140BD1B1A4B",
                               "isEnabled" : true
                             }
                           ],
@@ -1142,10 +1169,10 @@
                                           "animationStyle" : "basic",
                                           "buildOutAnimationType" : "none",
                                           "distance" : 1,
-                                          "duration" : 3,
+                                          "duration" : 0.25,
                                           "fadeOut" : true,
                                           "linearCoefficient" : 1,
-                                          "moveEase" : "easeOut",
+                                          "moveEase" : "easeInOut",
                                           "respectPhysics" : false,
                                           "target" : [
 
@@ -1155,38 +1182,14 @@
                                           "type" : "hide"
                                         }
                                       },
-                                      "identifier" : "BC39941A-089E-4E8D-87A2-2EE870D3DFB2",
-                                      "isEnabled" : true
-                                    }
-                                  ],
-                                  "__version" : 1
-                                },
-                                {
-                                  "__content" : [
-                                    {
-                                      "configurationBox" : {
-                                        "configuration" : {
-                                          "audioType" : "play",
-                                          "filePath" : "audio:com.apple.rc.audio.dj-tricks.dj-scratching-and-effect-22\/DJ%20Scratching%20and%20Effect%2022.caf",
-                                          "loops" : false,
-                                          "multiplePerformType" : "stops current action",
-                                          "target" : [
-
-                                          ],
-                                          "volume" : 0.5
-                                        },
-                                        "name" : {
-                                          "type" : "audio"
-                                        }
-                                      },
-                                      "identifier" : "3FEF8006-FCEE-4879-A572-E4A65AED2CB4",
+                                      "identifier" : "CD75F8D3-C2A3-4325-9770-EE025E003D15",
                                       "isEnabled" : true
                                     }
                                   ],
                                   "__version" : 1
                                 }
                               ],
-                              "identifier" : "FD13FC45-751D-4191-8248-4B46563F8617",
+                              "identifier" : "C2D7E011-B34C-4054-A74A-AE48B6537CAC",
                               "isEnabled" : true
                             }
                           ],
@@ -1204,20 +1207,20 @@
                                           "target" : [
 
                                           ],
-                                          "userIdentifier" : "LasersDone"
+                                          "userIdentifier" : "sparkingEnded"
                                         },
                                         "name" : {
                                           "type" : "custom"
                                         }
                                       },
-                                      "identifier" : "AC9A8D18-559E-4355-A882-26A0E6C8C9B4",
+                                      "identifier" : "5031575D-0C0B-47B9-A403-DA973213B46C",
                                       "isEnabled" : true
                                     }
                                   ],
                                   "__version" : 1
                                 }
                               ],
-                              "identifier" : "FBBBF420-0E48-494B-A2AF-8DD93757AF28",
+                              "identifier" : "2F8127D8-EB8C-4ADD-B16A-0B7DF2B129CA",
                               "isEnabled" : true
                             }
                           ],
@@ -1225,27 +1228,27 @@
                         }
                       ],
                       "color" : [
-                        0.21568627655506134,
-                        0.72549021244049072,
-                        0.80000001192092896,
+                        0.364705890417099,
+                        0.74117648601531982,
+                        0.69019609689712524,
                         1
                       ],
-                      "identifier" : "29976F31-8946-48F6-81A7-C9DD2F44828D",
+                      "identifier" : "1B83AEF7-7C94-4E95-BDE8-942BCE3A2534",
                       "isEnabled" : true,
                       "isLooping" : false,
                       "isModal" : false,
-                      "name" : "Lasers",
+                      "name" : "Saprk",
                       "triggers" : [
                         {
                           "__content" : [
                             {
                               "configurationBox" : {
                                 "configuration" : {
-                                  "userIdentifier" : "ShowLasers"
+                                  "userIdentifier" : "spark"
                                 },
                                 "name" : "custom"
                               },
-                              "identifier" : "DE560063-9B26-4AED-8A7A-9F4C47935F4F",
+                              "identifier" : "C2940AE7-0CF1-4512-828B-5E54FD97A013",
                               "isEnabled" : true
                             }
                           ],
@@ -1266,6 +1269,75 @@
               "material" : "concrete",
               "overrides" : {
                 "children" : {
+                  "3DCAC91A-53FD-49D7-A53D-3571B93715A5" : {
+                    "overrides" : {
+                      "arguments" : [
+                        [
+                          "item",
+                          {
+                            "typeName" : "String",
+                            "value" : "Lightning"
+                          }
+                        ],
+                        [
+                          "style",
+                          {
+                            "typeName" : "String",
+                            "value" : "Stylized"
+                          }
+                        ]
+                      ],
+                      "children" : {
+                        "item" : {
+                          "overrides" : {
+                            "factory" : null,
+                            "runtimeAttributes" : [
+                              [
+                                "RuntimeIdentifier",
+                                {
+                                  "typeName" : "UUID",
+                                  "value" : "F7956328-43E5-4955-8574-E25EAA1F42B0"
+                                }
+                              ]
+                            ]
+                          }
+                        }
+                      },
+                      "factory" : {
+                        "identifier" : "com.apple.rc.af.LightningIcon.e6a2fb7a-1536-410f-ad60-37b2d158ae3b",
+                        "version" : "1.0"
+                      },
+                      "runtimeAttributes" : [
+                        [
+                          "RuntimeIdentifier",
+                          {
+                            "typeName" : "UUID",
+                            "value" : "91C87E43-F33A-4F2D-BF96-989F148E82B6"
+                          }
+                        ]
+                      ]
+                    },
+                    "transform" : {
+                      "matrix" : [
+                        0.83651614189147949,
+                        0.22414383292198181,
+                        0.5,
+                        0,
+                        0.48296293616294861,
+                        0.12940959632396698,
+                        -0.86602526903152466,
+                        0,
+                        -0.25881898403167725,
+                        0.96592563390731812,
+                        5.9604634117249589e-08,
+                        0,
+                        0.035000000149011612,
+                        0.019999999552965164,
+                        -0.23000000417232513,
+                        1
+                      ]
+                    }
+                  },
                   "8D3D407F-BC4F-4DA9-A309-FEAEF7A4DF7A" : {
                     "overrides" : {
                       "children" : {
@@ -1913,6 +1985,75 @@
                     }
                   },
                   "B27E8C97-C809-4E91-9BE2-F57BC95416C7" : null,
+                  "BA9B475A-C58B-4C02-BE0D-94D0F96E5F67" : {
+                    "overrides" : {
+                      "arguments" : [
+                        [
+                          "item",
+                          {
+                            "typeName" : "String",
+                            "value" : "Lightning"
+                          }
+                        ],
+                        [
+                          "style",
+                          {
+                            "typeName" : "String",
+                            "value" : "Stylized"
+                          }
+                        ]
+                      ],
+                      "children" : {
+                        "item" : {
+                          "overrides" : {
+                            "factory" : null,
+                            "runtimeAttributes" : [
+                              [
+                                "RuntimeIdentifier",
+                                {
+                                  "typeName" : "UUID",
+                                  "value" : "97CC9CDE-76DF-4888-8FBA-200DF6A11D41"
+                                }
+                              ]
+                            ]
+                          }
+                        }
+                      },
+                      "factory" : {
+                        "identifier" : "com.apple.rc.af.LightningIcon.e6a2fb7a-1536-410f-ad60-37b2d158ae3b",
+                        "version" : "1.0"
+                      },
+                      "runtimeAttributes" : [
+                        [
+                          "RuntimeIdentifier",
+                          {
+                            "typeName" : "UUID",
+                            "value" : "0E158689-5A81-4447-BDDF-6EA4E817D704"
+                          }
+                        ]
+                      ]
+                    },
+                    "transform" : {
+                      "matrix" : [
+                        -0.83651614189147949,
+                        0.22414392232894897,
+                        0.5,
+                        0,
+                        -0.48296287655830383,
+                        0.12940959632396698,
+                        -0.86602532863616943,
+                        0,
+                        -0.25881907343864441,
+                        -0.96592563390731812,
+                        0,
+                        0,
+                        -0.035000000149011612,
+                        0,
+                        -0.23000000417232513,
+                        1
+                      ]
+                    }
+                  },
                   "D197DEF6-EBA7-4D66-9E5F-FE5DBF67B81A" : null,
                   "DA725819-2215-46A1-9F48-C54326B003D2" : null,
                   "DE7DDD73-FA5D-4B2D-9F0E-78BA53BB41BC" : null,
@@ -2045,21 +2186,21 @@
               "title" : "Robot",
               "viewTransform" : {
                 "cameraTransform" : [
-                  0.93914049863815308,
-                  1.0849907994270325e-07,
-                  -0.34353315830230713,
+                  0.71634113788604736,
+                  8.4690100266016088e-08,
+                  -0.6977502703666687,
                   0,
-                  -0.12164779007434845,
-                  0.93520474433898926,
-                  -0.33255654573440552,
+                  -0.28728482127189636,
+                  0.91130596399307251,
+                  -0.29493904113769531,
                   0,
-                  0.32127374410629272,
-                  0.3541075587272644,
-                  0.8782886266708374,
+                  0.63586372137069702,
+                  0.41173017024993896,
+                  0.65280592441558838,
                   0,
-                  0.21651603281497955,
-                  0.090201638638973236,
-                  0.3694206178188324,
+                  0.26099595427513123,
+                  0.16620028018951416,
+                  0.30161115527153015,
                   1
                 ],
                 "sceneTransform" : [

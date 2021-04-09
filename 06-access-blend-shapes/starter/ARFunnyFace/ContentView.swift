@@ -85,6 +85,7 @@ struct ARViewContainer: UIViewRepresentable {
   class ARDelegateHandler: NSObject, ARSessionDelegate {
     
     var arViewContainer: ARViewContainer
+    var doneSparking = true
     
     init(_ control: ARViewContainer) {
       arViewContainer = control
@@ -101,6 +102,13 @@ struct ARViewContainer: UIViewRepresentable {
       value * .pi / 180
     }
     
+    func makeRedLight() -> PointLight {
+      let redLight = PointLight()
+      redLight.light.color = .red
+      redLight.light.intensity = 100_000
+      return redLight
+    }
+    
     func animateRobot(faceAnchor: ARFaceAnchor) {
       guard let robot = arView.scene.anchors.first(where: { $0 is Experience.Robot }) as? Experience.Robot else { return }
       
@@ -113,6 +121,24 @@ struct ARViewContainer: UIViewRepresentable {
         let browLeft = blendShapes[.browDownLeft]?.floatValue,
         let browRight = blendShapes[.browDownRight]?.floatValue
       else { return }
+      
+      if doneSparking && jawOpen > 0.75 && browInnerUp < 0.4 {
+        doneSparking = false
+        
+        let lightL = makeRedLight()
+        let lightR = makeRedLight()
+        robot.eyeL?.addChild(lightL)
+        robot.eyeR?.addChild(lightR)
+        
+        robot.notifications.spark.post()
+        
+        robot.actions.sparkingEnded.onAction = { _ in
+          lightL.removeFromParent()
+          lightR.removeFromParent()
+          
+          self.doneSparking = true
+        }
+      }
       
       robot.eyeLidL?.orientation = simd_mul(
         simd_quatf(angle: deg2Rad(-120 + (90 * eyeBlinkLeft)), axis: [1,0,0]),
