@@ -105,9 +105,28 @@ struct ARViewContainer: UIViewRepresentable {
       guard let robot = arView.scene.anchors.first(where: { $0 is Experience.Robot }) as? Experience.Robot else { return }
       
       let blendShapes = faceAnchor.blendShapes
-      guard let jawOpen = blendShapes[.jawOpen]?.floatValue else { return }
+      guard
+        let jawOpen = blendShapes[.jawOpen]?.floatValue,
+        let eyeBlinkLeft = blendShapes[.eyeBlinkLeft]?.floatValue,
+        let eyeBlinkRight = blendShapes[.eyeBlinkRight]?.floatValue,
+        let browInnerUp = blendShapes[.browInnerUp]?.floatValue,
+        let browLeft = blendShapes[.browDownLeft]?.floatValue,
+        let browRight = blendShapes[.browDownRight]?.floatValue
+      else { return }
       
-      robot.jaw?.orientation = simd_quatf(angle: deg2Rad(-100 + (60 * jawOpen)), axis: [1,0,0])
+      robot.eyeLidL?.orientation = simd_mul(
+        simd_quatf(angle: deg2Rad(-120 + (90 * eyeBlinkLeft)), axis: [1,0,0]),
+        simd_quatf(angle: deg2Rad((90 * browLeft) - (30 * browInnerUp)), axis: [0,0,1])
+      )
+      
+      robot.eyeLidR?.orientation = simd_mul(
+        simd_quatf(angle: deg2Rad(-120 + (90 * eyeBlinkRight)), axis: [1,0,0]),
+        simd_quatf(angle: deg2Rad((-90 * browRight) - (-30 * browInnerUp)), axis: [0,0,1])
+      )
+      
+      robot.jaw?.orientation = simd_quatf(
+        angle: deg2Rad(-100 + (60 * jawOpen)),
+        axis: [1,0,0])
     }
     
     func session(_ session: ARSession, didUpdate anchors: [ARAnchor]) {
