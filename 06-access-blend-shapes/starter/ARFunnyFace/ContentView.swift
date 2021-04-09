@@ -101,6 +101,9 @@ struct ARViewContainer: UIViewRepresentable {
     func session(_ session: ARSession, didUpdate anchors: [ARAnchor]) {
       guard let faceAnchor = anchors.first(where: { $0 is ARFaceAnchor }) as? ARFaceAnchor else { return }
       eyeballLook(at: faceAnchor.lookAtPoint)
+      
+      let blendShapes = faceAnchor.blendShapes
+      let jawOpen = blendShapes[.jawOpen]?.floatValue
     }
   }
 }
